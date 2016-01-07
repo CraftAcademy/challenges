@@ -3,21 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation-flex.min.css">
+
   </head>
   <body>
-    <form>
-      <input type="text" id="weight" placeholder="Weight">
-      <input type="text" id="height" placeholder="Height">
-      <input type="button" id="calculate" value="Calculate">
-    </form>
-    <div>
-      <span id="display_value"></span>
-      <span id="display_message"></span>
+    <div class="row">
+      <div class="medium-8 columns">
+        <h3>BMI Calculator</h3>
+        <input type="text" id="weight" placeholder="Weight">
+        <input type="text" id="height" placeholder="Height">
+        <button type="button" id="calculate" class="success button">Calculate</button>
+        <div id="displays">
+          <hr>
+          <span id="display_value"></span>
+          <span id="display_message"></span>
+        </div>
 
+      </div>
     </div>
+
     <script src="src/person.js"></script>
     <script src="src/bmi_calculator.js"></script>
     <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.min.css"></script>
     <script type="text/javascript">
       $(document).ready(function () {
         $('#calculate').click(function () {

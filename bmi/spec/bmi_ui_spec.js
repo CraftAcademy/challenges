@@ -7,12 +7,12 @@ describe('BMI_UI - index.html', function() {
         $('#height').val('186');
         $('#calculate').trigger('click');
     });
-    
+
     it("displays BMI Value", function() {
-      expect($('#display_value').text()).toBe('Your BMI is 26.01');
+      expect($('#display_value').text()).toBe('Your BMI value is 26.01');
     });
 
     it("displays BMI Message", function() {
-      expect($('#display_message').text()).toBe('and you are Overweight');
+      expect($('#display_message').text()).toBe('and your BMI status is overweight');
     });
 });

@@ -28,11 +28,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
-        $(['#weight', '#height']).focus(function() {
+        $('#weight').focus(function() {
           $('#display_value').empty();
           $('#display_message').empty();
         });
-
 
         $('#calculate').click(function () {
           var w = parseFloat($('#weight').val());

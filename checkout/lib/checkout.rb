@@ -1,5 +1,5 @@
-require 'promotional_rules'
-require 'product_range'
+require './lib/promotional_rules'
+require './lib/product_range'
 
 class Checkout
 	attr_reader :product_range, :promotional_rules, :basket

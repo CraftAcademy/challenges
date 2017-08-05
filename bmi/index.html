@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.min.css">
 
-  </head>
-  <body>
-    <div class="row">
-      <div class="medium-8 columns">
-        <h3>BMI Calculator</h3>
-        <input type="text" id="weight" placeholder="Weight">
-        <input type="text" id="height" placeholder="Height">
-        <button type="button" id="calculate" class="success button">Calculate</button>
-        <div id="displays">
-          <hr>
-          <span id="display_value"></span>
-          <span id="display_message"></span>
-        </div>
+</head>
 
-      </div>
+<body>
+    <div class="row">
+        <div class="medium-8 columns">
+            <h3>BMI Calculator</h3>
+            <input type="text" id="weight" placeholder="Weight">
+            <input type="text" id="height" placeholder="Height">
+            <button type="button" id="calculate" class="success button">Calculate</button>
+            <div id="displays">
+                <hr>
+                <span id="display_value"></span>
+                <span id="display_message"></span>
+            </div>
+
+        </div>
     </div>
 
     <script src="src/person.js"></script>
@@ -27,21 +29,25 @@
     <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.js"></script>
     <script type="text/javascript">
-      $(document).ready(function () {
-        $('#weight').focus(function() {
-          $('#display_value').empty();
-          $('#display_message').empty();
-        });
+        $(document).ready(function() {
+            $('#weight').focus(function() {
+                $('#display_value').empty();
+                $('#display_message').empty();
+            });
 
-        $('#calculate').click(function () {
-          var w = parseFloat($('#weight').val());
-          var h = parseFloat($('#height').val());
-          var person = new Person({weight: w, height: h});
-          person.calculate_bmi();
-          $('#display_value').html('Your BMI value is ' + person.bmiValue);
-          $('#display_message').html('and your BMI status is ' + person.bmiMessage.toLowerCase());
+            $('#calculate').click(function() {
+                var w = parseFloat($('#weight').val());
+                var h = parseFloat($('#height').val());
+                var person = new Person({
+                    weight: w,
+                    height: h
+                });
+                person.calculate_bmi();
+                $('#display_value').html('Your BMI value is ' + person.bmiValue);
+                $('#display_message').html('and your BMI status is ' + person.bmiMessage.toLowerCase());
+            });
         });
-      });
     </script>
-  </body>
+</body>
+
 </html>

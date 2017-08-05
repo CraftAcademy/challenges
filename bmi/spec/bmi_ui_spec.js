@@ -9,10 +9,10 @@ describe('BMI_UI - index.html', function() {
     });
 
     it("displays BMI Value", function() {
-      expect($('#display_value').text()).toBe('Your BMI value is 26.01');
+        expect($('#display_value').text()).toBe('Your BMI value is 26.01');
     });
 
     it("displays BMI Message", function() {
-      expect($('#display_message').text()).toBe('and your BMI status is overweight');
+        expect($('#display_message').text()).toBe('and your BMI status is overweight');
     });
 });

@@ -26,4 +26,8 @@ class Recipe
       puts "#{step.position}. #{step.text}"
     end
   end
+
+  def self.reset_instance
+    Singleton.send :__init__, Recipe
+  end
 end

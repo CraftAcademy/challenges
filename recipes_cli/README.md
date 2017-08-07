@@ -14,3 +14,31 @@ To use ruby `Singleton` module you need to:
 
 - Require the lib singleton then include it inside the desired class.
 - Use the `instance` method to get the instance you need.
+
+
+To use Singleton, include the module in your class.
+```ruby
+class Klass
+   include Singleton
+   # ...
+end
+```
+This ensures that only one instance of Klass can be created.
+```
+a,b  = Klass.instance, Klass.instance
+
+a == b
+# => true
+```
+
+
+```
+Klass.new
+# => NoMethodError - new is private ...
+```
+The instance is created at upon the first call of `Klass.instance`.
+
+TODO: Add instructions to play around with object id's
+`.object_id`
+`ObjectSpace.each_object(Ingredient) {|x| p x.object_id }`
+`ObjectSpace._id2ref(70251746638580)`

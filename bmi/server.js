@@ -8,4 +8,5 @@ app.use(express.static(staticPath));
 
 app.listen(3000, function() {
   console.log('listening on port 3000');
+  console.log('visit localhost:3000 to get to the root url');
 });

@@ -25,13 +25,11 @@ var onReady = function(){
 
 loadLocale = function(code) {
     var deferred = $.Deferred();
-    setTimeout(function() {
+
         var locale = code || 'en';
         $.getJSON(`src/locales/${locale}.json`)
             .done(function(data) {
-                i18n.translator.add(data);
-                applyTranstations();
-                // Resolve the deferred
+                applyTranslations(data);
                 deferred.resolve();
             }).fail(function() {
                 $('#display_value').html('Could not load translation file');
@@ -40,7 +38,6 @@ loadLocale = function(code) {
 
         // Resolve the deferred
         deferred.resolve();
-    }, 200);
     return deferred.promise();
 
 }
@@ -56,7 +53,8 @@ getLocaleCode = function(id) {
     }
 }
 
-applyTranstations = function() {
+applyTranslations = function(data) {
+    i18n.translator.add(data);
     $('h3').html(i18n('app_name'))
     $('#calculate').html(i18n('calculate'))
     $("#weight").attr("placeholder", i18n('weight'));

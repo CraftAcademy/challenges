@@ -5,10 +5,12 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.min.css">
+    <link rel="stylesheet" href="src/style.css">
 
 </head>
 
 <body>
+    <div id="cover"></div>
     <div class="row">
         <div class="medium-8 columns">
             <h3></h3>
@@ -37,6 +39,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.1/foundation.js"></script>
     <script src="src/app.js"></script>
     <script type="text/javascript">
+      $(window).load(function(){
+        $('#cover').fadeOut(1000);
+      })
       $(document).ready(onReady);
     </script>
 </body>

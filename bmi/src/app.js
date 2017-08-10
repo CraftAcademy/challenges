@@ -1,43 +1,47 @@
-var onReady = function(){
-  loadLocale().done(function(){
-    $('#weight').focus(function() {
-        $('#display_value').empty();
-        $('#display_message').empty();
-    });
+var onReady = function() {
+  $('#english').addClass('disabled')
 
-    $('button').click(function() {
-        getLocaleCode(this.id);
-    })
-
-    $('#calculate').click(function() {
-        var w = parseFloat($('#weight').val());
-        var h = parseFloat($('#height').val());
-        var person = new Person({
-            weight: w,
-            height: h
+    loadLocale().done(function() {
+        $('#weight').focus(function() {
+            $('#display_value').empty();
+            $('#display_message').empty();
         });
-        person.calculate_bmi();
-        $('#display_value').html(i18n("bmi_message_prefix") + person.bmiValue);
-        $('#display_message').html(i18n("bmi_message_results") + person.bmiMessage.toLowerCase());
+
+        $('button').click(function() {
+            $('#english').toggleClass('disabled')
+            $('#swedish').toggleClass('disabled')
+            getLocaleCode(this.id);
+        })
+
+        $('#calculate').click(function() {
+            var w = parseFloat($('#weight').val());
+            var h = parseFloat($('#height').val());
+            var person = new Person({
+                weight: w,
+                height: h
+            });
+            person.calculate_bmi();
+            $('#display_value').html(i18n("bmi_message_prefix") + person.bmiValue);
+            $('#display_message').html(i18n("bmi_message_results") + person.bmiMessage.toLowerCase());
+        });
     });
-  });
 }
 
 loadLocale = function(code) {
     var deferred = $.Deferred();
 
-        var locale = code || 'en';
-        $.getJSON(`src/locales/${locale}.json`)
-            .done(function(data) {
-                applyTranslations(data);
-                deferred.resolve();
-            }).fail(function() {
-                $('#display_value').html('Could not load translation file');
-                deferred.reject();
-            });
+    var locale = code || 'en';
+    $.getJSON(`src/locales/${locale}.json`)
+        .done(function(data) {
+            applyTranslations(data);
+            deferred.resolve();
+        }).fail(function() {
+            $('#display_value').html('Could not load translation file');
+            deferred.reject();
+        });
 
-        // Resolve the deferred
-        deferred.resolve();
+    // Resolve the deferred
+    deferred.resolve();
     return deferred.promise();
 
 }

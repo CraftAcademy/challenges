@@ -49,7 +49,7 @@ loadLocale = function(code) {
 getLocaleCode = function(id) {
     switch (id) {
         case 'swedish':
-            loadLocale('sv')
+            loadLocale('sv');
             break;
         case 'english':
             loadLocale('en');
@@ -60,7 +60,7 @@ getLocaleCode = function(id) {
 applyTranslations = function(data) {
     i18n.translator.add(data);
     $('h3').html(i18n('app_name'))
-    $('#calculate').html(i18n('calculate'))
+    $('#calculate').html(i18n('calculate'));
     $("#weight").attr("placeholder", i18n('weight'));
     $("#height").attr("placeholder", i18n('height'));
     $("#swedish").html(i18n('swedish'));
